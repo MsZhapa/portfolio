@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alexandra-Flavia Brumar — Portfolio</title>
+  <meta name="description" content="Android developer portfolio — projects, skills, and contact." />
+
+  <style>
+    :root{
+      /* Trust + friendly palette */
+      --bg: #f7fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: rgba(15, 23, 42, 0.10);
+
+      --primary: #2563eb;   /* trust blue */
+      --teal: #0ea5a5;      /* friendly teal */
+      --accent: #fb7185;    /* warm coral */
+      --accent2: #f59e0b;   /* soft orange */
+
+      --shadow: 0 14px 40px rgba(2, 8, 23, 0.08);
+      --radius: 22px;
+      --radiusPhoto: 26px;
+
+      --max: 1060px;
+    }
+
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(14,165,165,0.10), transparent 60%),
+        radial-gradient(800px 500px at 85% 0%, rgba(37,99,235,0.12), transparent 60%),
+        radial-gradient(900px 600px at 65% 85%, rgba(251,113,133,0.10), transparent 60%),
+        var(--bg);
+      line-height: 1.55;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .container{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    /* Top nav */
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(247,250,252,0.65);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+    .brand{
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .brand strong{
+      font-size: 14px;
+      letter-spacing: 0.2px;
+    }
+    .brand span{
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-links{
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+    .nav-links a:hover{
+      background: rgba(37,99,235,0.08);
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.65);
+      box-shadow: 0 10px 30px rgba(2,8,23,0.06);
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      font-size: 14px;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 18px 50px rgba(2,8,23,0.10);
+      text-decoration: none;
+      background: rgba(255,255,255,0.85);
+    }
+    .btn-primary{
+      border: none;
+      background: linear-gradient(135deg, var(--primary), var(--teal));
+      color: white;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 46px 0 26px;
+    }
+    .hero-grid{
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 26px;
+      align-items: center;
+    }
+    .kicker{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.65);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+    h1{
+      font-size: clamp(32px, 4.5vw, 46px);
+      line-height: 1.07;
+      margin: 0 0 14px;
+      letter-spacing: -0.6px;
+    }
+    .sub{
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0 0 18px;
+      max-width: 60ch;
+    }
+    .hero-actions{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .hero-photo{
+      width: 100%;
+      max-width: 380px;
+      margin-left: auto;
+      border-radius: var(--radiusPhoto);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15,23,42,0.12);
+      background: rgba(255,255,255,0.55);
+    }
+    .hero-photo img{
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Sections */
+    section{
+      padding: 34px 0;
+    }
+    .section-head{
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .section-head h2{
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.2px;
+    }
+    .section-head p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid{
+      display: grid;
+      gap: 14px;
+    }
+
+    .cards-2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cards-3{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card{
+      background: rgba(255,255,255,0.75);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 30px rgba(2,8,23,0.05);
+      padding: 16px;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 46px rgba(2,8,23,0.10);
+    }
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .pill-row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .pill{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,23,42,0.12);
+      background: rgba(255,255,255,0.85);
+      color: #0f172a;
+      white-space: nowrap;
+    }
+    .pill.blue{ background: rgba(37,99,235,0.10); border-color: rgba(37,99,235,0.22); }
+    .pill.teal{ background: rgba(14,165,165,0.10); border-color: rgba(14,165,165,0.22); }
+    .pill.coral{ background: rgba(251,113,133,0.10); border-color: rgba(251,113,133,0.22); }
+    .pill.orange{ background: rgba(245,158,11,0.10); border-color: rgba(245,158,11,0.22); }
+
+    /* Projects cards */
+    .project-meta{
+      display: grid;
+      gap: 10px;
+    }
+    .project-meta .label{
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    .project-meta ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Contact */
+    .contact{
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+    .contact .card{
+      padding: 18px;
+    }
+    .contact a{
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .contact a:hover{ text-decoration: underline; }
+
+    .quote{
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      border: 1px dashed rgba(15,23,42,0.18);
+      background: rgba(255,255,255,0.65);
+      color: #0f172a;
+      font-size: 14px;
+    }
+
+    footer{
+      padding: 26px 0 36px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .hero-photo{ margin: 10px 0 0; max-width: 420px; }
+      .cards-3{ grid-template-columns: 1fr; }
+      .cards-2{ grid-template-columns: 1fr; }
+      .contact{ grid-template-columns: 1fr; }
+    }
+
+    /* JS fade-in animation */
+    .reveal{ opacity: 0; transform: translateY(10px); }
+    .reveal.show{ opacity: 1; transform: translateY(0); transition: opacity .55s ease, transform .55s ease; }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <strong>Alexandra-Flavia Brumar</strong>
+        <span>Android Developer • Firebase • Clean UI</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary" href="#contact">Let’s connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="reveal">
+          <div class="kicker">✨ Friendly, focused, and user-first</div>
+          <h1>Hi there! I’m Alexandra-Flavia 👋</h1>
+          <p class="sub">
+            I’m an Android developer, problem-solver, and part-time tech explorer. I love turning everyday ideas into apps
+            that actually make life easier — from organizing your bookshelves to planning your meals.
+          </p>
+          <p class="sub">
+            I work mainly with <strong>Java</strong>, <strong>XML</strong>, and <strong>Firebase</strong>, and I enjoy designing clean interfaces and features that simplify everyday tasks.
+            Alongside development, I have experience in retail operations and team coordination, which helps me approach problems with both technical and real-world perspectives.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">See projects</a>
+            <a class="btn" href="#skills">Tech stack</a>
+            <a class="btn" href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <figure class="hero-photo reveal" aria-label="Portrait photo">
+          <!-- Put your hoodie photo next to this file and name it hoodie.png -->
+          <img src="hoodie.png" alt="Alexandra-Flavia Brumar portrait" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-head reveal">
+        <h2>Projects 💻</h2>
+        <p>Real apps, real features, real users in mind.</p>
+      </div>
+
+      <div class="grid cards-2">
+        <article class="card reveal">
+          <h3>📚 Bookcase App</h3>
+          <p>
+            Android app to manage and visualize a personal book collection — track reading status, progress, and organize books by physical location.
+          </p>
+
+          <div class="project-meta">
+            <div>
+              <div class="label">Key features</div>
+              <ul>
+                <li>Read status + progress tracking</li>
+                <li>Book details + cover images</li>
+                <li>Location-based organization (“cubes”)</li>
+              </ul>
+            </div>
+
+            <div class="pill-row" aria-label="Tech tags">
+              <span class="pill blue">Java</span>
+              <span class="pill blue">XML</span>
+              <span class="pill teal">Firebase</span>
+              <span class="pill teal">Firestore</span>
+              <span class="pill teal">Storage</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>🌍 Travel Journal App</h3>
+          <p>
+            Trip journaling with photos, notes, and map-based tagging — explore entries by country and city.
+          </p>
+
+          <div class="project-meta">
+            <div>
+              <div class="label">Key features</div>
+              <ul>
+                <li>Photo + description entries</li>
+                <li>GeoPoint tagging + map feel</li>
+                <li>Country cards → city lists</li>
+              </ul>
+            </div>
+
+            <div class="pill-row">
+              <span class="pill blue">Java</span>
+              <span class="pill blue">XML</span>
+              <span class="pill teal">Firestore</span>
+              <span class="pill teal">Storage</span>
+              <span class="pill teal">Maps</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>📋 OnTrack</h3>
+          <p>
+            Productivity + habit tracking with custom lists, recurring activities, rewards, and real-time syncing.
+          </p>
+
+          <div class="project-meta">
+            <div>
+              <div class="label">Key features</div>
+              <ul>
+                <li>Custom lists + dialog-based UI</li>
+                <li>Recurring tracking + progress visualization</li>
+                <li>Real-time Firestore refresh</li>
+              </ul>
+            </div>
+
+            <div class="pill-row">
+              <span class="pill blue">Java</span>
+              <span class="pill blue">XML</span>
+              <span class="pill teal">Firestore</span>
+              <span class="pill teal">Realtime updates</span>
+              <span class="pill coral">UX-first</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>🍽️ Foodie</h3>
+          <p>
+            Meal planning that uses ingredient tracking and grocery logic — designed to reduce friction in cooking decisions.
+          </p>
+
+          <div class="project-meta">
+            <div>
+              <div class="label">Key features</div>
+              <ul>
+                <li>Ingredients + grocery status (“bought”)</li>
+                <li>Recipe planning & favorites (MVP path)</li>
+                <li>Designed for syncing with other lists</li>
+              </ul>
+            </div>
+
+            <div class="pill-row">
+              <span class="pill blue">Java</span>
+              <span class="pill teal">Firebase Auth</span>
+              <span class="pill teal">Firestore</span>
+              <span class="pill orange">MVP focus</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal" style="grid-column: 1 / -1;">
+          <h3>🤖🥗 AI Smart Fridge (Web App)</h3>
+          <p>
+            AI-assisted fridge management to reduce food waste — track items, suggest actions, and keep kitchen inventory under control.
+          </p>
+
+          <div class="project-meta">
+            <div>
+              <div class="label">Key features</div>
+              <ul>
+                <li>AI-assisted ingredient recognition / suggestions</li>
+                <li>Firebase backend for data + syncing</li>
+                <li>Simple, practical UX for everyday use</li>
+              </ul>
+            </div>
+
+            <div class="pill-row">
+              <span class="pill teal">Firebase</span>
+              <span class="pill teal">Firestore</span>
+              <span class="pill coral">AI integration</span>
+              <span class="pill orange">Web app</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-head reveal">
+        <h2>Skills / Tech Stack ⚡</h2>
+        <p>Tools I’m comfortable building with.</p>
+      </div>
+
+      <div class="grid cards-3">
+        <div class="card reveal">
+          <h3>🔧 Android</h3>
+          <p>Java, XML, Android SDK, Android Studio — building clean, user-friendly screens and flows.</p>
+          <div class="pill-row">
+            <span class="pill blue">Java</span>
+            <span class="pill blue">XML</span>
+            <span class="pill blue">Android SDK</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3>☁️ Firebase</h3>
+          <p>Firestore modeling, real-time updates, Storage for images, Authentication for MVP-ready apps.</p>
+          <div class="pill-row">
+            <span class="pill teal">Firestore</span>
+            <span class="pill teal">Storage</span>
+            <span class="pill teal">Auth</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3>🧠 Product mindset</h3>
+          <p>UI/UX clarity, structured features, and building things that solve real everyday problems.</p>
+          <div class="pill-row">
+            <span class="pill coral">UI/UX</span>
+            <span class="pill orange">Project planning</span>
+            <span class="pill orange">Problem solving</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-head reveal">
+        <h2>Contact 📬</h2>
+        <p>Let’s talk projects, collaborations, or tech ideas.</p>
+      </div>
+
+      <div class="contact">
+        <div class="card reveal">
+          <h3>Reach me here</h3>
+          <p style="margin-bottom: 12px; color: var(--muted);">
+            Quick links — easiest way to connect:
+          </p>
+          <div class="pill-row" style="margin-top: 0;">
+            <span class="pill">Email</span>
+            <span class="pill">LinkedIn</span>
+            <span class="pill">GitHub</span>
+          </div>
+
+          <div style="margin-top: 14px; display: grid; gap: 10px; font-size: 15px;">
+            <div>📧 <a href="mailto:alexabrumar@gmail.com">alexabrumar@gmail.com</a></div>
+            <div>🔗 <a href="https://linkedin.com/in/alexandra-brumar/" target="_blank" rel="noreferrer">linkedin.com/in/alexandra-brumar/</a></div>
+            <div>💻 <a href="https://github.com/MsZhapa" target="_blank" rel="noreferrer">github.com/MsZhapa</a></div>
+          </div>
+
+          <div class="quote">
+            ...and don’t forget: <strong>“The best way to predict the future is to invent it.”</strong> – Alan Kay
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3>Small friendly note ✨</h3>
+          <p>
+            I love building practical apps with clean UI and solid structure. If you have an idea, a role, or a collaboration in mind — send it over.
+          </p>
+          <p style="margin: 0; color: var(--muted); font-size: 14px;">
+            (Also: yes, I do both technical + creative. That’s the fun part.)
+          </p>
+
+          <div style="margin-top: 14px; display:flex; flex-wrap:wrap; gap:10px;">
+            <a class="btn btn-primary" href="mailto:alexabrumar@gmail.com">Email me</a>
+            <a class="btn" href="#projects">Back to projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="reveal">
+      © 2025 Alexandra-Flavia Brumar. All rights reserved.
+    </footer>
+  </main>
+
+  <script>
+    // Simple scroll reveal (smooth + professional)
+    const revealEls = Array.from(document.querySelectorAll('.reveal'));
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) e.target.classList.add('show');
+      }
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => io.observe(el));
+
+    // Tiny enhancement: highlight active nav section (optional feel-good)
+    const sections = ['projects','skills','contact'].map(id => document.getElementById(id));
+    const navLinks = Array.from(document.querySelectorAll('.nav-links a'))
+      .filter(a => a.getAttribute('href')?.startsWith('#'));
+
+    const setActive = () => {
+      const y = window.scrollY + 120;
+      let current = null;
+      for (const s of sections) {
+        if (!s) continue;
+        if (s.offsetTop <= y) current = s.id;
+      }
+      navLinks.forEach(a => {
+        const href = a.getAttribute('href').slice(1);
+        if (href === current) {
+          a.style.background = 'rgba(14,165,165,0.10)';
+          a.style.color = 'var(--text)';
+          a.style.textDecoration = 'none';
+        } else {
+          a.style.background = '';
+          a.style.color = '';
+          a.style.textDecoration = '';
+        }
+      });
+    };
+    window.addEventListener('scroll', setActive, { passive: true });
+    setActive();
+  </script>
+</body>
+</html>
